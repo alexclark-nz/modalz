@@ -1,0 +1,33 @@
+{
+  "name": "modalz",
+  "version": "1.0.0",
+  "description": "A simple base for building modals",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "rm -rf dist && parcel ./src/index.html",
+    "build": "rm -rf dist && babel ./src -d ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexclark-nz/modalz.git"
+  },
+  "keywords": [
+    "modal",
+    "popup"
+  ],
+  "author": "@AlexClark_NZ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexclark-nz/modalz/issues"
+  },
+  "homepage": "https://github.com/alexclark-nz/modalz#readme",
+  "dependencies": {
+    "js-cookie": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.12.4"
+  }
+}

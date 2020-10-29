@@ -1,0 +1,109 @@
+/* Define your base variables here, customise further as required */
+.modal {
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --corner-radius: 8px;
+  --icon: 2rem;
+  --overlay: rgba(0, 0, 0, 0.6);
+  --primary-color: #000;
+  --heading-size: 1.5rem;
+  --font: sans-serif;
+  --transition: all 0.3s ease-in-out;
+  --max-width: 600px;
+  --min-width: 400px;
+  --max-height: auto;
+  --min-height: auto;
+}
+
+.modal {
+  box-sizing: border-box;
+  font-family: var(--font);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 110;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background: var(--overlay);
+  max-height: 100vh;
+  overflow-y: scroll;
+  transition: var(--transition);
+}
+
+.modal * {
+  box-sizing: border-box;
+}
+
+.modal:not(.modal--active) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal__inner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  padding: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .modal__inner {
+    width: auto;
+    height: auto;
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    min-height: var(--min-height);
+    max-height: var(--max-height);
+    margin: var(--space-lg);
+    border-radius: var(--corner-radius);
+  }
+}
+
+.modal__close {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+}
+
+.modal__close:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.modal__close svg,
+.modal__close img {
+  height: var(--icon);
+  width: var(--icon);
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+}
+
+.modal__heading {
+  color: var(--primary-color);
+  font-size: var(--heading-size);
+  margin: 0 0 var(--space-md);
+}
+
+.modal__content {
+  /* Customise this content to suit */
+}
