@@ -75,5 +75,10 @@ if (modalTriggers.length > 0) {
 if (modalCloseButtons.length > 0) {
     modalCloseButtons.forEach(button => {
         button.addEventListener('click', closeModals);
+        button.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter') {
+                closeModals();
+            }
+        });
     });
 }
