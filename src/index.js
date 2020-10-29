@@ -27,7 +27,14 @@ function clickOutside(e) {
 
 function triggerModal(modal, delay) {
     const hasSeen = Cookies.get('modalz');
-    const expires = parseInt(modal.dataset.expires);
+    const providedExpiry = modal.dataset.expires;
+    let expires;
+
+    if (providedExpiry) {
+        expires = parseInt(providedExpiry);
+    } else {
+        expires = 1;
+    }
 
     if(!hasSeen) {
         setTimeout(() => {
