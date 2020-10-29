@@ -6,20 +6,22 @@ Just need to give your 'triggers' a "data-modal" property matching the ID of you
 
 ## Usage
 
-JavaScript:
+### JavaScript:
 
 ```javascript
 import "modalz";
 ```
 
-For the CSS, run the following from within your project root to copy and paste the base styles.
+### CSS
+
+Run the following from within your project root to copy and paste the base styles.
 You can then override this through the variables, or however you like.
 
 ```
-cp node_modules/modalz/src/style.css path/to/your/projects/styles
+cp node_modules/modalz/src/modalz.css path/to/your/projects/styles
 ```
 
-Example markup:
+### Example markup:
 
 ```html
 <button data-modal="example">Example Modal</button>
@@ -46,4 +48,7 @@ Example markup:
 </aside>
 ```
 
-The data-timer and data-expires are properties you can set to automatically pop up the modal after a given time (in milliseconds), and provide an expiry for the cookie this sets (so that users don't have it pop up every single visit). Defaults to one day if not passed in.
+### Automatic Triggers
+
+By adding a data-timer attribute (value in milliseconds), you can have the modal automatically pop up after the specified time.
+A cookie is set when doing this, so the user doesn't get annoyed with the modal popping up on every visit. You can set a custom expiry on the cookie by passing in "data-expires" with the value in days. This defaults to one day.
