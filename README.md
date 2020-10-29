@@ -6,17 +6,20 @@ Just need to give your 'triggers' a "data-modal" property matching the ID of you
 
 ## Usage
 
+JavaScript:
+
 ```javascript
 import "modalz";
 ```
 
-For the CSS, run the following from withinn your project root to copy and paste the base styles:
+For the CSS, run the following from within your project root to copy and paste the base styles.
+You can then override this through the variables, or however you like.
 
 ```
 cp node_modules/modalz/src/style.css path/to/your/projects/styles
 ```
 
-You can then override this through the variables, or however you like.
+Example markup:
 
 ```html
 <button data-modal="example">Example Modal</button>
