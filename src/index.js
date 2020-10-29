@@ -26,7 +26,8 @@ function clickOutside(e) {
 }
 
 function triggerModal(modal, delay) {
-    const hasSeen = Cookies.get('modalz');
+    const { id } = modal;
+    const hasSeen = Cookies.get(`modalz-${id}`);
     const providedExpiry = modal.dataset.expires;
     let expires;
 
@@ -39,7 +40,7 @@ function triggerModal(modal, delay) {
     if(!hasSeen) {
         setTimeout(() => {
             modal.classList.add('modal--active');
-            Cookies.set('modalz', true, { expires });
+            Cookies.set(`modalz-${id}`, true, { expires });
         }, delay);
     }
 
