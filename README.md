@@ -26,7 +26,13 @@ cp node_modules/modalz/src/modalz.css path/to/your/projects/styles
 ```html
 <button data-modal="example">Example Modal</button>
 
-<aside class="modal" id="example" data-timer="3000" data-expires="1">
+<aside
+  class="modal"
+  id="example"
+  data-timer="3000"
+  data-expires="1"
+  data-next-modal="anotherModalId"
+>
   <div class="modal__inner">
     <button class="modal__close">
       <svg viewBox="0 0 24 24">
@@ -52,3 +58,7 @@ cp node_modules/modalz/src/modalz.css path/to/your/projects/styles
 
 By adding a data-timer attribute (value in milliseconds), you can have the modal automatically pop up after the specified time.
 A cookie is set when doing this, so the user doesn't get annoyed with the modal popping up on every visit. You can set a custom expiry on the cookie by passing in "data-expires" with the value in days. This defaults to one day.
+
+### Next Modal Triggers
+
+You can add a 'data-next-modal' attribute to any modal, which will trigger the activation of another one on close.

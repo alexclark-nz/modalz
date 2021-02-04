@@ -4,10 +4,33 @@ const modals = document.querySelectorAll('.modal');
 const modalTriggers = document.querySelectorAll('[data-modal]');
 const modalCloseButtons = document.querySelectorAll('.modal__close');
 
-function closeModals() {
+/**
+ * Closes all modals in the document
+ */
+function closeAllModals() {
     modals.forEach(modal => modal.classList.remove('modal--active'));
 }
 
+
+/**
+ * Closes a specific modal
+ * If we have a 'data-next-modal' attribute, we can trigger another modal
+ * @param {Object} e
+ */
+function closeModal({ target }) {
+    const modal = target.closest('.modal');
+    modal.classList.remove('modal--active');
+
+    const { nextModal } = modal.dataset;    
+    if (nextModal) {
+        toggleModal(nextModal);
+    }
+}
+
+/**
+ * Toggle a specific modal (by ID)
+ * @param {String} target
+ */
 function toggleModal(target) {
     const targetModal = document.querySelector(`#${target}`);
 
@@ -19,12 +42,21 @@ function toggleModal(target) {
     targetModal.classList.toggle('modal--active');
 }
 
-function clickOutside(e) {
+/**
+ * Handles clicking outside the modal to deactivate
+ * @param {Object} e 
+ */
+function clickOutside(e) {    
     if (e.target === e.currentTarget) {
-        closeModals();
+        closeModal(e);
     }
 }
 
+/**
+ * Handles the automatic activation of modals
+ * @param {HTMLElement} 
+ * @param {Number} delay 
+ */
 function triggerModal(modal, delay) {
     const { id } = modal;
     const hasSeen = Cookies.get(`modalz-${id}`);
@@ -46,6 +78,10 @@ function triggerModal(modal, delay) {
 
 }
 
+
+/**
+ * Event listeners
+ */
 if (modals.length) {
     modals.forEach(modal => {
         modal.addEventListener('click', clickOutside);
@@ -59,7 +95,7 @@ if (modals.length) {
 
     window.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
-            closeModals();
+            closeAllModals();
         }
     });
 }
@@ -74,10 +110,10 @@ if (modalTriggers.length > 0) {
 
 if (modalCloseButtons.length > 0) {
     modalCloseButtons.forEach(button => {
-        button.addEventListener('click', closeModals);
+        button.addEventListener('click', closeModal);
         button.addEventListener('keydown', (e) => {
             if(e.key === 'Enter') {
-                closeModals();
+                closeModal();
             }
         });
     });

@@ -9,7 +9,13 @@
   <body>
     <button data-modal="example">Example Modal</button>
 
-    <aside class="modal" id="example" data-timer="3000" data-expires="1">
+    <aside
+      class="modal"
+      id="example"
+      data-timer="3000"
+      data-expires="1"
+      data-next-modal="example2"
+    >
       <div class="modal__inner">
         <button class="modal__close" title="Close Popup">
           <svg viewBox="0 0 24 24">
@@ -26,6 +32,21 @@
             velit ex incididunt laboris. Eu sint ullamco dolor consectetur esse
             irure et labore. Id pariatur non incididunt veniam.
           </p>
+        </div>
+      </div>
+    </aside>
+
+    <aside class="modal" id="example2">
+      <div class="modal__inner">
+        <button class="modal__close" title="Close Popup">
+          <svg viewBox="0 0 24 24">
+            <polyline points="3.5,3.5 12,12 20.5,20.5" />
+            <polyline points="20.5,3.5 12,12 3.5,20.5" />
+          </svg>
+        </button>
+        <div class="modal__content">
+          <h2 class="modal__heading">Second Modal</h2>
+          <p>I open when the first modal closes.</p>
         </div>
       </div>
     </aside>
